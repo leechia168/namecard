@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#123b2d">
+<title>李佳 Chia, Lee｜電子名片</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&display=swap');
+  :root { --ink:#102f25; --green:#174a38; --deep:#0b241c; --gold:#c9a45c; --paper:#f3eedf; --muted:#d9d0b9; }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; min-height:100vh; padding:32px 16px; display:grid; place-items:center;
+    color:var(--paper); background:
+      radial-gradient(ellipse at 15% 10%, rgba(201,164,92,.15), transparent 34%),
+      linear-gradient(135deg,#071b15,#123b2d 55%,#081e17);
+    font-family:"隸書","LiSu","DFKai-SB","Noto Serif TC",serif;
+  }
+  .card {
+    position:relative; width:min(100%,440px); overflow:hidden; padding:34px 28px 26px;
+    border:1px solid rgba(201,164,92,.75); border-radius:7px;
+    background:linear-gradient(145deg,rgba(24,67,51,.97),rgba(10,36,27,.98));
+    box-shadow:0 24px 70px rgba(0,0,0,.38), inset 0 0 0 6px rgba(201,164,92,.07);
+  }
+  .card:before,.card:after { content:""; position:absolute; pointer-events:none; border-color:rgba(201,164,92,.42); border-style:solid; width:34px;height:34px; }
+  .card:before { top:12px;left:12px;border-width:1px 0 0 1px; }
+  .card:after { right:12px;bottom:12px;border-width:0 1px 1px 0; }
+  .bamboo { position:absolute; right:-16px; top:12px; opacity:.12; font-size:150px; line-height:1; color:#d9c28b; transform:rotate(8deg); }
+  .seal { display:inline-grid; place-items:center; width:37px;height:37px; border:1px solid var(--gold); color:var(--gold); font-size:18px; margin-bottom:22px; }
+  .eyebrow { color:var(--gold); letter-spacing:.28em; font-size:12px; margin:0 0 10px; }
+  h1 { margin:0; font-size:clamp(36px,9vw,48px); font-weight:500; letter-spacing:.16em; }
+  .english { margin:8px 0 0; color:#e2d5b5; font-family:Georgia,serif; font-size:15px; letter-spacing:.13em; }
+  .rule { height:1px; margin:25px 0 22px; background:linear-gradient(90deg,var(--gold),rgba(201,164,92,.08)); }
+  .section-title { color:var(--gold); font-size:14px; letter-spacing:.2em; margin:0 0 12px; }
+  .intro { min-height:44px; color:#e8e0cf; line-height:1.9; font-size:15px; margin:0; }
+  .hint { color:#bdb49e; font-size:12px; margin-top:3px; }
+  .contact { display:grid; gap:12px; margin-top:22px; }
+  .contact a { color:var(--paper); text-decoration:none; display:flex; align-items:center; gap:12px; font-size:15px; overflow-wrap:anywhere; }
+  .contact a:hover { color:#f1d28d; }
+  .symbol { display:grid; place-items:center; flex:0 0 28px; height:28px; border:1px solid rgba(201,164,92,.65); color:var(--gold); font-family:Arial,sans-serif; font-size:12px; }
+  .bottom { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-top:27px; padding-top:19px; border-top:1px solid rgba(201,164,92,.35); }
+  #qrcode { background:#fff; padding:7px; border-radius:3px; width:112px; height:112px; display:grid; place-items:center; }
+  #qrcode img,#qrcode canvas { max-width:100%; max-height:100%; }
+  .qr-caption { color:#d9cfb7; font-size:12px; line-height:1.7; text-align:right; }
+  .actions { display:flex; gap:10px; margin-top:22px; }
+  button { flex:1; cursor:pointer; border:1px solid var(--gold); background:transparent; color:var(--paper); padding:11px 8px; border-radius:3px; font:inherit; font-size:14px; }
+  button.primary { background:var(--gold); color:#17291f; font-weight:600; }
+  button:hover { filter:brightness(1.12); }
+  .footer { text-align:center; color:rgba(231,220,194,.55); font-size:11px; letter-spacing:.18em; margin-top:22px; }
+  @media(max-width:360px) { .card{padding:28px 20px 22px}.bottom{align-items:flex-start}.qr-caption{font-size:11px} }
+  @media print { body{background:white;padding:0}.card{box-shadow:none;width:100%;max-width:440px;print-color-adjust:exact;-webkit-print-color-adjust:exact}.actions{display:none} }
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="bamboo" aria-hidden="true">竹</div>
+  <div class="seal">佳</div>
+  <p class="eyebrow">PERSONAL DIGITAL CARD</p>
+  <h1>李佳</h1>
+  <p class="english">Chia, Lee</p>
+  <div class="rule"></div>
+
+  <section>
+    <p class="section-title">個人介紹</p>
+    <p class="intro">歡迎與我聯繫，期待與您交流。</p>
+    <p class="hint">可直接編輯 HTML 中的這段文字，換成您的個人介紹。</p>
+  </section>
+
+  <div class="contact">
+    <a href="mailto:leechia168@gmail.com"><span class="symbol">@</span><span>leechia168@gmail.com</span></a>
+    <a href="https://line.me/R/ti/p/~chia_lee" target="_blank" rel="noopener"><span class="symbol">LINE</span><span>chia_lee</span></a>
+  </div>
+
+  <div class="bottom">
+    <div id="qrcode" aria-label="聯絡資訊 QR Code"></div>
+    <div class="qr-caption">掃描 QR Code<br>快速儲存聯絡資訊</div>
+  </div>
+  <div class="actions">
+    <button class="primary" id="saveContact">加入聯絡人</button>
+    <button onclick="window.print()">列印名片</button>
+  </div>
+  <div class="footer">竹墨 · 清雅 · 致遠</div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+  const vcard = [
+    "BEGIN:VCARD","VERSION:3.0",
+    "N:Lee;Chia;;;",
+    "FN:李佳 (Chia, Lee)",
+    "EMAIL;TYPE=INTERNET:leechia168@gmail.com",
+    "X-SOCIALPROFILE;TYPE=LINE:chia_lee",
+    "END:VCARD"
+  ].join("\\r\\n");
+  const qr = document.getElementById("qrcode");
+  if (window.QRCode) {
+    new QRCode(qr, { text:vcard, width:98, height:98, colorDark:"#102f25", colorLight:"#ffffff", correctLevel:QRCode.CorrectLevel.M });
+  } else {
+    qr.textContent = "QR Code 載入失敗，請連線後重新整理";
+    qr.style.color = "#102f25"; qr.style.fontSize = "11px"; qr.style.textAlign = "center";
+  }
+  document.getElementById("saveContact").addEventListener("click", () => {
+    const blob = new Blob([vcard], {type:"text/vcard;charset=utf-8"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = "Chia-Lee.vcf"; a.click();
+    URL.revokeObjectURL(url);
+  });
+</script>
+</body>
+</html>
